@@ -13,6 +13,11 @@
 		0DFF9086212FFEF10056B9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF9085212FFEF10056B9D9 /* Assets.xcassets */; };
 		0DFF9089212FFEF10056B9D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF9087212FFEF10056B9D9 /* LaunchScreen.storyboard */; };
 		0DFF908C212FFEF10056B9D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF908B212FFEF10056B9D9 /* main.m */; };
+		0DFF9096212FFF9A0056B9D9 /* CADisplayLink+GC_userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */; };
+		0DFF9097212FFF9A0056B9D9 /* UICollectionViewCell+GCSnapshotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */; };
+		0DFF909A213000750056B9D9 /* GCVideoItemMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9099213000750056B9D9 /* GCVideoItemMoveView.m */; };
+		0DFF909D213002090056B9D9 /* GCVideoItemMoveViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF909C213002090056B9D9 /* GCVideoItemMoveViewCell.m */; };
+		6D61E4DDBAF5C68C938F8472 /* libPods-HQLVideoItemMoveCollectionViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0153767746FA43594F1BCAE /* libPods-HQLVideoItemMoveCollectionViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,17 @@
 		0DFF9088212FFEF10056B9D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DFF908A212FFEF10056B9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF908B212FFEF10056B9D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0DFF9092212FFF990056B9D9 /* CADisplayLink+GC_userInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+GC_userInfo.h"; sourceTree = "<group>"; };
+		0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+GC_userInfo.m"; sourceTree = "<group>"; };
+		0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GCSnapshotView.m"; sourceTree = "<group>"; };
+		0DFF9095212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GCSnapshotView.h"; sourceTree = "<group>"; };
+		0DFF9098213000750056B9D9 /* GCVideoItemMoveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCVideoItemMoveView.h; sourceTree = "<group>"; };
+		0DFF9099213000750056B9D9 /* GCVideoItemMoveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCVideoItemMoveView.m; sourceTree = "<group>"; };
+		0DFF909B213002090056B9D9 /* GCVideoItemMoveViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCVideoItemMoveViewCell.h; sourceTree = "<group>"; };
+		0DFF909C213002090056B9D9 /* GCVideoItemMoveViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCVideoItemMoveViewCell.m; sourceTree = "<group>"; };
+		B0153767746FA43594F1BCAE /* libPods-HQLVideoItemMoveCollectionViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HQLVideoItemMoveCollectionViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BC30A0A617F8642D603807 /* Pods-HQLVideoItemMoveCollectionViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQLVideoItemMoveCollectionViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HQLVideoItemMoveCollectionViewDemo/Pods-HQLVideoItemMoveCollectionViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E0CE3CF0A226F07764A57E3C /* Pods-HQLVideoItemMoveCollectionViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQLVideoItemMoveCollectionViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HQLVideoItemMoveCollectionViewDemo/Pods-HQLVideoItemMoveCollectionViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D61E4DDBAF5C68C938F8472 /* libPods-HQLVideoItemMoveCollectionViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +61,8 @@
 			children = (
 				0DFF907B212FFEEF0056B9D9 /* HQLVideoItemMoveCollectionViewDemo */,
 				0DFF907A212FFEEF0056B9D9 /* Products */,
+				FA9A15D0B93DD81B04160ECF /* Pods */,
+				86C77CF5E69150C08A044DF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,8 +86,33 @@
 				0DFF9087212FFEF10056B9D9 /* LaunchScreen.storyboard */,
 				0DFF908A212FFEF10056B9D9 /* Info.plist */,
 				0DFF908B212FFEF10056B9D9 /* main.m */,
+				0DFF909B213002090056B9D9 /* GCVideoItemMoveViewCell.h */,
+				0DFF909C213002090056B9D9 /* GCVideoItemMoveViewCell.m */,
+				0DFF9098213000750056B9D9 /* GCVideoItemMoveView.h */,
+				0DFF9099213000750056B9D9 /* GCVideoItemMoveView.m */,
+				0DFF9092212FFF990056B9D9 /* CADisplayLink+GC_userInfo.h */,
+				0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */,
+				0DFF9095212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.h */,
+				0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */,
 			);
 			path = HQLVideoItemMoveCollectionViewDemo;
+			sourceTree = "<group>";
+		};
+		86C77CF5E69150C08A044DF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0153767746FA43594F1BCAE /* libPods-HQLVideoItemMoveCollectionViewDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA9A15D0B93DD81B04160ECF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5BC30A0A617F8642D603807 /* Pods-HQLVideoItemMoveCollectionViewDemo.debug.xcconfig */,
+				E0CE3CF0A226F07764A57E3C /* Pods-HQLVideoItemMoveCollectionViewDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +122,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DFF908F212FFEF10056B9D9 /* Build configuration list for PBXNativeTarget "HQLVideoItemMoveCollectionViewDemo" */;
 			buildPhases = (
+				8F9B5CC6B99CD8CF678ABC62 /* [CP] Check Pods Manifest.lock */,
 				0DFF9075212FFEEF0056B9D9 /* Sources */,
 				0DFF9076212FFEEF0056B9D9 /* Frameworks */,
 				0DFF9077212FFEEF0056B9D9 /* Resources */,
@@ -136,14 +181,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8F9B5CC6B99CD8CF678ABC62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HQLVideoItemMoveCollectionViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0DFF9075212FFEEF0056B9D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0DFF9081212FFEEF0056B9D9 /* ViewController.m in Sources */,
+				0DFF9096212FFF9A0056B9D9 /* CADisplayLink+GC_userInfo.m in Sources */,
+				0DFF909A213000750056B9D9 /* GCVideoItemMoveView.m in Sources */,
 				0DFF908C212FFEF10056B9D9 /* main.m in Sources */,
+				0DFF909D213002090056B9D9 /* GCVideoItemMoveViewCell.m in Sources */,
 				0DFF907E212FFEEF0056B9D9 /* AppDelegate.m in Sources */,
+				0DFF9097212FFF9A0056B9D9 /* UICollectionViewCell+GCSnapshotView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +351,7 @@
 		};
 		0DFF9090212FFEF10056B9D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5BC30A0A617F8642D603807 /* Pods-HQLVideoItemMoveCollectionViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +369,7 @@
 		};
 		0DFF9091212FFEF10056B9D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0CE3CF0A226F07764A57E3C /* Pods-HQLVideoItemMoveCollectionViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
