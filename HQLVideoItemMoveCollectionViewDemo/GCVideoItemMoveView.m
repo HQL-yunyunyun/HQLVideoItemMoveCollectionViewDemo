@@ -9,24 +9,7 @@
 #import "GCVideoItemMoveView.h"
 #import <Masonry.h>
 #import "CADisplayLink+GC_userInfo.h"
-
-CG_INLINE CGPoint GC_CGPointAdd(CGPoint point1, CGPoint point2) {
-    return CGPointMake(point1.x + point2.x, point1.y + point2.y);
-}
-
-CG_INLINE CGPoint GC_CGPointSubtract(CGPoint point1, CGPoint point2) {
-    return CGPointMake(point1.x - point2.x, point1.y - point2.y);
-}
-
-typedef NS_ENUM(NSInteger, GCScrollingDirection) {
-    GCScrollingDirectionUnknow = 0,
-    GCScrollingDirectionUp,
-    GCScrollingDirectionDown,
-    GCScrollingDirectionLeft,
-    GCScrollingDirectionRight,
-};
-
-static NSString *const kGCScrollingDirectionKey = @"GCScrollingDirection";
+#import "UIScrollView+GC_BoundaryScroll.h"
 
 static CGFloat kAnimationDuration = 0.3f;
 
@@ -104,7 +87,8 @@ static CGFloat kMargin = 1.0;
 
 - (void)setDefaults {
     _scrollingSpeed = 100.0f;
-    _scrollingTriggerEdgeInsets = UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0);
+    _scrollingTriggerEdgeInsets = UIEdgeInsetsMake(0, 50.0, 0, 50.0);
+    [self setupBoundaryScroll];
 }
 
 - (void)prepareUI {
@@ -129,14 +113,22 @@ static CGFloat kMargin = 1.0;
     [self cellClickHandle:[self.viewArray objectAtIndex:index]];
 }
 
-/**
- 取消定时器
- */
-- (void)invalidatesScrollTimer {
-    if (!self.displayLink.paused) {
-        [self.displayLink invalidate];
-    }
-    self.displayLink = nil;
+- (void)setupBoundaryScroll {
+    self.scrollView.gc_scrollingSpeed = _scrollingSpeed;
+    self.scrollView.gc_scrollingTriggerEdgeInsets = _scrollingTriggerEdgeInsets;
+    __weak typeof(self) _self = self;
+    self.scrollView.gc_boundaryScrollHandle = ^(CGPoint scrollDistancePoint, GCScrollingDirection scrollingDirection) {
+        // view的移动
+        [_self invalidateLayoutIfNecessaryWithMovePoint:scrollDistancePoint];
+        _self.panLastLocationInCollectionView = GC_CGPointAdd(_self.panLastLocationInCollectionView, scrollDistancePoint);
+    };
+}
+
+- (void)invalidateBoundaryScroll {
+    [self.scrollView gc_invalidatesScrollTimer];
+    self.scrollView.gc_scrollingSpeed = 0.0;
+    self.scrollView.gc_scrollingTriggerEdgeInsets = UIEdgeInsetsZero;
+    self.scrollView.gc_boundaryScrollHandle = nil;
 }
 
 /**
@@ -331,83 +323,7 @@ static CGFloat kMargin = 1.0;
     }
 }
 
-- (void)setupScrollTimerInDirection:(GCScrollingDirection)scrollingDirection {
-    if (!self.displayLink.paused) {
-        GCScrollingDirection oldDirection = [self.displayLink.GC_userInfo[kGCScrollingDirectionKey] integerValue];
-        
-        if (scrollingDirection == oldDirection) {
-            return;
-        }
-    }
-    
-    [self invalidatesScrollTimer];
-    
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleScroll:)];
-    self.displayLink.GC_userInfo = @{kGCScrollingDirectionKey : @(scrollingDirection)};
-    
-    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-}
-
 #pragma mark - gesture handle
-
-- (void)handleScroll:(CADisplayLink *)displayLink {
-    GCScrollingDirection direction = [displayLink.GC_userInfo[kGCScrollingDirectionKey] integerValue];
-    if (direction == GCScrollingDirectionUnknow) {
-        return;
-    }
-    
-    CGSize frameSize = self.scrollView.bounds.size;
-    CGSize contentSize = self.scrollView.contentSize;
-    CGPoint contentOffset = self.scrollView.contentOffset;
-    UIEdgeInsets contentInset = self.scrollView.contentInset;
-    // Important to have an integer `distance` as the `contentOffset` property automatically gets rounded
-    // and it would diverge from the view's center resulting in a "cell is slipping away under finger"-bug.
-    CGFloat distance = rint(self.scrollingSpeed * displayLink.duration);
-    CGPoint translation = CGPointZero;
-    
-    switch (direction) {
-        case GCScrollingDirectionLeft: {
-            distance = -distance;
-            CGFloat minX = 0.0 - contentInset.left;
-            
-            if ((contentOffset.x + distance) <= minX) {
-                distance = -contentOffset.x - contentInset.left;
-            }
-            
-            translation = CGPointMake(distance, 0.0f);
-            break;
-        }
-        case GCScrollingDirectionRight: {
-            CGFloat maxX = (contentSize.width + contentInset.right) - frameSize.width;
-            
-            if ((contentOffset.x + distance) >= maxX) {
-                distance = maxX - contentOffset.x;
-            }
-            
-            translation = CGPointMake(distance, 0.0);
-            
-            break;
-        }
-        default: { break; }
-    }
-    
-    if (distance == 0) {
-        [self invalidatesScrollTimer];
-        return;
-    }
-    
-    // 判断是否超出范围
-    CGPoint targetContentOffset = GC_CGPointAdd(contentOffset, translation);
-    if (targetContentOffset.x <= (0.0 - contentInset.left + 1) || targetContentOffset.x >= ((contentSize.width + contentInset.right) - frameSize.width - 1)) {
-        [self invalidatesScrollTimer];
-        return;
-    }
-    
-    // view的移动
-    [self invalidateLayoutIfNecessaryWithMovePoint:translation];
-    self.scrollView.contentOffset = GC_CGPointAdd(contentOffset, translation);
-    self.panLastLocationInCollectionView = GC_CGPointAdd(self.panLastLocationInCollectionView, translation);
-}
 
 /**
  手势的处理方法
@@ -436,15 +352,7 @@ static CGFloat kMargin = 1.0;
             
             // 设置定时器 --- 只有水平移动
             UIView *currentCell = self.viewArray[self.currentSelectedIndex];
-            if (currentCell.center.x <= (CGRectGetMinX(self.scrollView.bounds) + self.scrollingTriggerEdgeInsets.left)) {
-                [self setupScrollTimerInDirection:GCScrollingDirectionLeft];
-            } else {
-                if (currentCell.center.x > (CGRectGetMaxX(self.scrollView.bounds) - self.scrollingTriggerEdgeInsets.right)) {
-                    [self setupScrollTimerInDirection:GCScrollingDirectionRight];
-                } else {
-                    [self invalidatesScrollTimer];
-                }
-            }
+            [self.scrollView gc_boundaryScrollWithCurrentPoint:currentCell.center scrollDirection:kGCScrollDirectionHorizontal];
             
             break;
         }
@@ -462,7 +370,7 @@ static CGFloat kMargin = 1.0;
             
             self.isDurationAnimation = NO;
             
-            [self invalidatesScrollTimer];
+            [self.scrollView gc_invalidatesScrollTimer];
             
             break;
         }

@@ -10,14 +10,16 @@
 
 #import <objc/runtime.h>
 
+static const void *kUserInfo = @"gc_kUserInfo";
+
 @implementation CADisplayLink (GC_userInfo)
 
 - (void)setGC_userInfo:(NSDictionary *)GC_userInfo {
-    objc_setAssociatedObject(self, "GC_userInfo", GC_userInfo, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, kUserInfo, GC_userInfo, OBJC_ASSOCIATION_COPY);
 }
 
 - (NSDictionary *)GC_userInfo {
-    return objc_getAssociatedObject(self, "GC_userInfo");
+    return objc_getAssociatedObject(self, kUserInfo);
 }
 
 @end

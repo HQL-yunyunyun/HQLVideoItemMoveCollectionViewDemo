@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D917C7F213596DA00033616 /* CADisplayLink+GC_userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D917C7E213596DA00033616 /* CADisplayLink+GC_userInfo.m */; };
+		0D917C82213679E400033616 /* UIScrollView+GC_BoundaryScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D917C80213679E400033616 /* UIScrollView+GC_BoundaryScroll.m */; };
 		0DFF907E212FFEEF0056B9D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF907D212FFEEF0056B9D9 /* AppDelegate.m */; };
 		0DFF9081212FFEEF0056B9D9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9080212FFEEF0056B9D9 /* ViewController.m */; };
 		0DFF9084212FFEEF0056B9D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF9082212FFEEF0056B9D9 /* Main.storyboard */; };
 		0DFF9086212FFEF10056B9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF9085212FFEF10056B9D9 /* Assets.xcassets */; };
 		0DFF9089212FFEF10056B9D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF9087212FFEF10056B9D9 /* LaunchScreen.storyboard */; };
 		0DFF908C212FFEF10056B9D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF908B212FFEF10056B9D9 /* main.m */; };
-		0DFF9096212FFF9A0056B9D9 /* CADisplayLink+GC_userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */; };
 		0DFF9097212FFF9A0056B9D9 /* UICollectionViewCell+GCSnapshotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */; };
 		0DFF909A213000750056B9D9 /* GCVideoItemMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9099213000750056B9D9 /* GCVideoItemMoveView.m */; };
 		0DFF909D213002090056B9D9 /* GCVideoItemMoveViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF909C213002090056B9D9 /* GCVideoItemMoveViewCell.m */; };
@@ -21,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D917C7E213596DA00033616 /* CADisplayLink+GC_userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+GC_userInfo.m"; sourceTree = "<group>"; };
+		0D917C80213679E400033616 /* UIScrollView+GC_BoundaryScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GC_BoundaryScroll.m"; sourceTree = "<group>"; };
+		0D917C81213679E400033616 /* UIScrollView+GC_BoundaryScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GC_BoundaryScroll.h"; sourceTree = "<group>"; };
 		0DFF9079212FFEEF0056B9D9 /* HQLVideoItemMoveCollectionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQLVideoItemMoveCollectionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFF907C212FFEEF0056B9D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DFF907D212FFEEF0056B9D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,7 +36,6 @@
 		0DFF908A212FFEF10056B9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF908B212FFEF10056B9D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DFF9092212FFF990056B9D9 /* CADisplayLink+GC_userInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+GC_userInfo.h"; sourceTree = "<group>"; };
-		0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+GC_userInfo.m"; sourceTree = "<group>"; };
 		0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GCSnapshotView.m"; sourceTree = "<group>"; };
 		0DFF9095212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GCSnapshotView.h"; sourceTree = "<group>"; };
 		0DFF9098213000750056B9D9 /* GCVideoItemMoveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCVideoItemMoveView.h; sourceTree = "<group>"; };
@@ -91,9 +94,11 @@
 				0DFF9098213000750056B9D9 /* GCVideoItemMoveView.h */,
 				0DFF9099213000750056B9D9 /* GCVideoItemMoveView.m */,
 				0DFF9092212FFF990056B9D9 /* CADisplayLink+GC_userInfo.h */,
-				0DFF9093212FFF990056B9D9 /* CADisplayLink+GC_userInfo.m */,
+				0D917C7E213596DA00033616 /* CADisplayLink+GC_userInfo.m */,
 				0DFF9095212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.h */,
 				0DFF9094212FFF990056B9D9 /* UICollectionViewCell+GCSnapshotView.m */,
+				0D917C81213679E400033616 /* UIScrollView+GC_BoundaryScroll.h */,
+				0D917C80213679E400033616 /* UIScrollView+GC_BoundaryScroll.m */,
 			);
 			path = HQLVideoItemMoveCollectionViewDemo;
 			sourceTree = "<group>";
@@ -208,9 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DFF9081212FFEEF0056B9D9 /* ViewController.m in Sources */,
-				0DFF9096212FFF9A0056B9D9 /* CADisplayLink+GC_userInfo.m in Sources */,
+				0D917C7F213596DA00033616 /* CADisplayLink+GC_userInfo.m in Sources */,
 				0DFF909A213000750056B9D9 /* GCVideoItemMoveView.m in Sources */,
 				0DFF908C212FFEF10056B9D9 /* main.m in Sources */,
+				0D917C82213679E400033616 /* UIScrollView+GC_BoundaryScroll.m in Sources */,
 				0DFF909D213002090056B9D9 /* GCVideoItemMoveViewCell.m in Sources */,
 				0DFF907E212FFEEF0056B9D9 /* AppDelegate.m in Sources */,
 				0DFF9097212FFF9A0056B9D9 /* UICollectionViewCell+GCSnapshotView.m in Sources */,
@@ -357,6 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98B5P59X79;
 				INFOPLIST_FILE = HQLVideoItemMoveCollectionViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98B5P59X79;
 				INFOPLIST_FILE = HQLVideoItemMoveCollectionViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
