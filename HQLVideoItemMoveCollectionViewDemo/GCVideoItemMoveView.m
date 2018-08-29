@@ -75,6 +75,7 @@ static CGFloat kMargin = 1.0;
 }
 
 - (void)dealloc {
+    [self invalidateBoundaryScroll];
     NSLog(@"dealloc ---> %@", NSStringFromClass([self class]));
 }
 
