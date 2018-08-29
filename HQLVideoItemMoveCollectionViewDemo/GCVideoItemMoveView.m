@@ -39,11 +39,6 @@ static CGFloat kMargin = 1.0;
 @property (nonatomic, strong) NSMutableArray *viewArray;
 
 /**
- 在边界时的移动
- */
-@property (nonatomic, strong) CADisplayLink *displayLink;
-
-/**
  记录上次移动的位置
  */
 @property (nonatomic, assign) CGPoint panLastLocationInCollectionView;
