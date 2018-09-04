@@ -92,7 +92,6 @@ static CGFloat kMargin = 1.0;
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self addSubview:scrollView];
     self.scrollView = scrollView;
-    scrollView.contentInset = UIEdgeInsetsMake(0, [[self class] viewSize].width * 0.5, 0, [[self class] viewSize].width * 0.5);
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -170,7 +169,8 @@ static CGFloat kMargin = 1.0;
             [self.viewArray removeObject:cell];
             
             [self.scrollView setContentSize:CGSizeMake(CGRectGetMaxX([self.viewArray.lastObject frame]) + (self.viewArray.lastObject ? self.itemMargin : 0), self.scrollView.contentSize.height)];
-            
+            // 更新
+            [self updateContentInset];
             // 回调
             if (self.delegate && [self.delegate respondsToSelector:@selector(videoItemMoveView:didRemoveItemAtIndex:)]) {
                 [self.delegate videoItemMoveView:self didRemoveItemAtIndex:index];
@@ -250,6 +250,8 @@ static CGFloat kMargin = 1.0;
     }
     
     [self.scrollView setContentSize:CGSizeMake(CGRectGetMaxX(lastView.frame) + (lastView ? self.itemMargin : 0), maxHeight)];
+    // 更新contentInset
+    [self updateContentInset];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(videoItemMoveViewDidReloadData:)]) {
         [self.delegate videoItemMoveViewDidReloadData:self];
@@ -317,6 +319,20 @@ static CGFloat kMargin = 1.0;
     if (canMove) {
         [self refreshPanGesture:index isAdd:YES];
     }
+}
+
+/**
+ 更新scrollView的contentInset --- 使内容完全居中
+ */
+- (void)updateContentInset {
+    // 判断 --- 完全居中
+    CGFloat viewWidth = [[self class] viewSize].width;
+    CGFloat inset = (viewWidth - self.scrollView.contentSize.width) * 0.5;
+    if (inset <= 10) {
+        inset = 10;
+    }
+    
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0, inset, 0, inset)];
 }
 
 #pragma mark - gesture handle

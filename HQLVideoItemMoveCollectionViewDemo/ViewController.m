@@ -66,7 +66,7 @@
 }
 
 - (void)bulidData {
-    for (NSInteger i = 0; i < 10; i++) {
+    for (NSInteger i = 0; i < 30; i++) {
         GCVideoItemMoveViewCellModel *model = [[GCVideoItemMoveViewCellModel alloc] init];
         model.isSelected = NO;
         model.color = (i % 2 == 0) ? [UIColor redColor] : [UIColor blueColor];
